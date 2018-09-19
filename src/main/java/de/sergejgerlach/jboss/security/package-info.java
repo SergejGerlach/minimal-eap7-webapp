@@ -1,1 +1,0 @@
-package de.sergejgerlach.jboss.security;
