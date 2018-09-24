@@ -50,6 +50,7 @@
 
     <build>
         <defaultGoal>clean install</defaultGoal>
+        <finalName>security</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

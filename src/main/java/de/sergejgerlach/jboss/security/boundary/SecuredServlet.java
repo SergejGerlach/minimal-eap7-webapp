@@ -15,7 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.sergejgerlach.jboss.security;
+package de.sergejgerlach.jboss.security.boundary;
+
+import de.sergejgerlach.jboss.security.control.HtmlWriter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,7 +34,6 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * A simple secured HTTP servlet.
  *
- * @author <a href="mailto:darran.lofthouse@jboss.com">Darran Lofthouse</a>
  */
 @WebServlet("/secured")
 @ServletSecurity(httpMethodConstraints = { @HttpMethodConstraint(value = "GET", rolesAllowed = { "Users" }) })
@@ -41,18 +42,9 @@ public class SecuredServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try (PrintWriter writer = resp.getWriter()) {
-            writer.println("<html>");
-            writer.println("  <head><title>Secured Servlet</title></head>");
-            writer.println("  <body>");
-            writer.println("    <h1>Secured Servlet</h1>");
-            writer.println("    <p>");
-            writer.print(" Current Principal '");
             Principal user = req.getUserPrincipal();
-            writer.print(user != null ? user.getName() : "NO AUTHENTICATED USER");
-            writer.print("'");
-            writer.println("    </p>");
-            writer.println("  </body>");
-            writer.println("</html>");
+            String body = "Current Principal '" + (user != null ? user.getName() : "NO AUTHENTICATED USER") + "'";
+            HtmlWriter.writePage(writer, "Secured Servlet", body);
         }
     }
 
