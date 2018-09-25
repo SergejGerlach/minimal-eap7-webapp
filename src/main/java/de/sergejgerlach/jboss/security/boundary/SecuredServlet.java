@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  */
 @WebServlet("/secured")
-@ServletSecurity(httpMethodConstraints = { @HttpMethodConstraint(value = "GET", rolesAllowed = { "Users" }) })
+@ServletSecurity(httpMethodConstraints = { @HttpMethodConstraint(value = "GET", rolesAllowed = { "SuperUser" }) })
 public class SecuredServlet extends HttpServlet {
 
     @Override
