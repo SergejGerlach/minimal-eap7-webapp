@@ -1,7 +1,7 @@
 # JBoss
 standalone/**/*
 !standalone/configuration
-!standalone/configuration/standalone.xml
+!standalone/configuration/_standalone.xml
 !standalone/configuration/users.properties
 !standalone/configuration/roles.properties
 
