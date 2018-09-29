@@ -11,10 +11,10 @@ public class GroupPrincipal extends UserPrincipal implements Group {
         super(groupName);
     }
 
-    public boolean addMember(Principal user) {
-        boolean isMember = this.members.containsKey(user);
+    public boolean addMember(Principal member) {
+        boolean isMember = this.members.containsKey(member);
         if (!isMember) {
-            this.members.put(user, user);
+            this.members.putIfAbsent(member, member) ;
         }
         return !isMember;
     }
@@ -36,11 +36,11 @@ public class GroupPrincipal extends UserPrincipal implements Group {
         }
 
         if (!isMember) {
-            for (Principal p : this.members.keySet()) {
-                if (member instanceof UserPrincipal) {
-                    isMember = p.getName() == null ? member.getName() == null : p.getName().equals(member.getName());
+            if (member instanceof UserPrincipal) {
+                for (Principal m : this.members.keySet()) {
+                    isMember = m.getName() == null ? member.getName() == null : m.getName().equals(member.getName());
+                    if (isMember) break;
                 }
-                if (isMember) break;
             }
         }
 
@@ -59,12 +59,9 @@ public class GroupPrincipal extends UserPrincipal implements Group {
     public String toString() {
         StringBuilder sb = new StringBuilder(this.getName());
         sb.append("(members:");
-
         for (Object o : this.members.keySet()) {
-            sb.append(o);
-            sb.append(',');
+            sb.append(o).append(',');
         }
-
         sb.setCharAt(sb.length() - 1, ')');
         return sb.toString();
     }
