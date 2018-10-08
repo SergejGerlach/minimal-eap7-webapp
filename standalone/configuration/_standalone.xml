@@ -84,7 +84,6 @@
     <profile>
         <subsystem xmlns="urn:jboss:domain:logging:1.5">
             <console-handler name="CONSOLE">
-                <level name="INFO"/>
                 <formatter>
                     <named-formatter name="COLOR-PATTERN"/>
                 </formatter>
@@ -104,7 +103,7 @@
                 <level name="WARN"/>
             </logger>
             <logger category="org.jboss.as.config">
-                <level name="DEBUG"/>
+                <level name="ERROR"/>
             </logger>
             <logger category="sun.rmi">
                 <level name="WARN"/>
@@ -115,8 +114,11 @@
             <logger category="jacorb.config">
                 <level name="ERROR"/>
             </logger>
+            <logger category="de.sergejgerlach">
+                <level name="CONFIG"/>
+            </logger>
             <root-logger>
-                <level name="FINE"/>
+                <level name="INFO"/>
                 <handlers>
                     <handler name="CONSOLE"/>
                     <handler name="FILE"/>
@@ -282,10 +284,10 @@
                 </security-domain>
                 <security-domain name="AppLoginModule" cache-type="default">
                     <authentication>
-                        <login-module code="de.sergejgerlach.sso.AppLoginModule" flag="required">
+                        <login-module code="de.sergejgerlach.security.sso.AppLoginModule" flag="required">
                             <module-option name="test" value="true"/>
                             <module-option name="testUser" value="sergej"/>
-                            <module-option name="testRoles" value="SuperUser,Admin"/>
+                            <module-option name="roles" value="SuperUser,Admin"/>
                         </login-module>
                     </authentication>
                 </security-domain>

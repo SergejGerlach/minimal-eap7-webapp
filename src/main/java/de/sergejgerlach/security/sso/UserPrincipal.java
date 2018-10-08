@@ -1,4 +1,4 @@
-package de.sergejgerlach.sso;
+package de.sergejgerlach.security.sso;
 
 import java.security.Principal;
 import java.util.Objects;

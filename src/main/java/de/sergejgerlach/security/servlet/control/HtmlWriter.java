@@ -1,4 +1,4 @@
-package de.sergejgerlach.servlet.control;
+package de.sergejgerlach.security.servlet.control;
 
 import java.io.PrintWriter;
 
