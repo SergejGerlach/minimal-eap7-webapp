@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.sergejgerlach</groupId>
-    <artifactId>eap6-security</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <artifactId>eap7-minimal</artifactId>
+    <version>1.0</version>
 
-    <name>JBoss EAP Security</name>
-    <description>Demo of Security JBoss EAP</description>
+    <name>JBoss EAP 7 Minimal</name>
+    <description>Demo of Minimal JBoss EAP 7</description>
     
     <packaging>war</packaging>
 
@@ -22,8 +22,8 @@
     <dependencies>
         <dependency>
             <groupId>javax</groupId>
-            <artifactId>javaee-web-api</artifactId>
-            <version>6.0</version>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
             <scope>provided</scope>
         </dependency>
 
@@ -49,6 +49,6 @@
     </dependencies>
 
     <build>
-        <finalName>security</finalName>
+        <finalName>minimal</finalName>
     </build>
 </project>

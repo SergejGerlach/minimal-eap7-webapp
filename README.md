@@ -2,4 +2,4 @@
 
 start JBoss with VM options :
 
-``-Djboss.server.base.dir=eap6-security/standalone``
+``-Djboss.server.base.dir=minimal-eap7-webapp/standalone``
